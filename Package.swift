@@ -11,13 +11,9 @@ let package = Package(
 	products: [
 		.library(
 			name: "ReCaptcha",
-			targets: ["ReCaptcha"]),
-		.library(
-			name: "ReCaptchaRx",
-			targets: ["ReCaptchaRx"])
+			targets: ["ReCaptcha"])
 	],
 	dependencies: [
-		.package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.0.0"),
 		.package(url: "https://github.com/JakubMazur/AppSwizzle.git", from: "1.3.3")
 	],
 	targets: [
@@ -33,15 +29,6 @@ let package = Package(
 				.linkedFramework("UIKit")
 			]
 		),
-		.target(
-			name: "ReCaptchaRx",
-			dependencies: [
-				"ReCaptcha", "RxSwift"
-			],
-			path: "ReCaptcha/Classes/Rx",
-			linkerSettings: [
-				.linkedFramework("UIKit")
-			]),
 		.testTarget(
 			name: "ReCaptcha_Tests",
 			dependencies: ["ReCaptcha", "AppSwizzle"],
